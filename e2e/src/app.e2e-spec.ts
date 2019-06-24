@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
+import {MenuComponent} from '../../src/app/core/components/menu/menu.component';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,11 +9,10 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display Strona glowna', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to facebook!');
+    expect(page.getTitleText()).toEqual('Strona glowna');
   });
-
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
