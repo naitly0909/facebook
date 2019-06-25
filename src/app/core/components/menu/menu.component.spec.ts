@@ -1,10 +1,12 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MenuComponent} from './menu.component';
+import {AppComponent} from '../app/app.component';
 
 describe('MenuComponent', () => {
     let component: MenuComponent;
     let fixture: ComponentFixture<MenuComponent>;
+    let $component: any;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -16,7 +18,12 @@ describe('MenuComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(MenuComponent);
         component = fixture.componentInstance;
+        $component = fixture.nativeElement;
         fixture.detectChanges();
+    });
+
+    afterEach(() => {
+        $component.remove();
     });
 
     it('should create', () => {
