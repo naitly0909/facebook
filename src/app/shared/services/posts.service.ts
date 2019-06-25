@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {IResponsePosts} from '../interfaces/response/response-posts.interface';
 import {IPostList} from '../interfaces/post-list.interface';
 import {IPostListItem} from '../interfaces/post-list-item.interface';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,8 @@ export class PostsService {
     }
 
     async getPosts(): Promise<IPostList> {
-        const response = await this.http.get<IResponsePosts>('assets/posts.json').toPromise();
+        const url = environment.postsUrl;
+        const response = await this.http.get<IResponsePosts>(url).toPromise();
         return response.posts;
     }
 
