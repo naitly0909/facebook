@@ -10,7 +10,6 @@ export class PostsService {
 
     }
 
-
     getPosts() {
         return this.http.get('assets/posts.json').toPromise();
     }

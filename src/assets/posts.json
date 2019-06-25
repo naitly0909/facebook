@@ -1,0 +1,22 @@
+[
+    {
+        "id": "IdPsa",
+        "body": "Mama fajnego psa!",
+        "author": {
+            "name": "Ciocia Krysia"
+        },
+        "images": [
+            "https://picsum.photos/200/50"
+        ]
+    },
+    {
+        "id": "IdKota",
+        "body": "Mama fajnego kota!",
+        "author": {
+            "name": "Wojek Zbyszek"
+        },
+        "images": [
+            "https://picsum.photos/200/50"
+        ]
+    }
+]
