@@ -2,6 +2,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {PostsService} from './posts.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import {IPostList} from '../interfaces/post-list.interface';
 
 describe('PostsService', () => {
     let service: PostsService;
@@ -35,14 +36,22 @@ describe('PostsService', () => {
             // 2. Stworzyc server HTTP, ktory bedzie zwracal mockowe dane
             const server = httpMock.expectOne('assets/posts.json');
 
+
+            const fakePostList = [
+                {id: 'aldfjs'},
+                {id: 'fweopwe'}
+            ] as IPostList;
+
             // 3. Zwracamy dane testowe
-            server.flush(['pierwszy', 'drugi']);
+            server.flush({
+                posts: fakePostList
+            });
 
             // 4. Pobrac dane z odpowiedzi servera
             const posts = await response;
 
             // 5. Sprawdzic poprawnosc otrzymanych danych
-            expect(posts).toEqual(['pierwszy', 'drugi']);
+            expect(posts).toEqual(fakePostList);
         });
 
     });
