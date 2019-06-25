@@ -4,8 +4,11 @@
         <!--<img src=""{{post.image[0]}} class="card-img-top" alt="...">-->
         <div class="card-body">
             <h5 class="card-title">{{post.author.name}}</h5>
+            <!--            <p class="card-text">{{post.body}}</p>-->
+            <!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
+
+            <h6 class="card-subtitle mb-2 text-muted">{{ post.created_time | myDate }}</h6>
             <p class="card-text">{{post.body}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
 </ng-container>
