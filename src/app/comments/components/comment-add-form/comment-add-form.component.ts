@@ -19,9 +19,17 @@ export class CommentAddFormComponent implements OnInit {
     ngOnInit() {
     }
 
-    onSubmit() {
+    onSubmit(commentForm) {
         console.log('onSubmit()', this.comment);
-        this.addComment.next(this.comment);
+
+        // Deep copy of the comment object
+        this.addComment.next(Object.assign({}, this.comment));
+
+        // Reset comment body
+        // this.comment.body = null;
+
+        commentForm.reset();
+        // console.log(this.comment.body);
     }
 
 }

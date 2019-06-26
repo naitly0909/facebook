@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ICommentListItem} from '../../../shared/interfaces/comment-list-item.interface';
 
 @Component({
@@ -8,12 +8,16 @@ import {ICommentListItem} from '../../../shared/interfaces/comment-list-item.int
 })
 export class CommentListItemComponent implements OnInit {
 
-    comment: ICommentListItem = null;
+    @Input() comment: ICommentListItem = null;
 
     constructor() {
     }
 
     ngOnInit() {
+    }
+
+    getCommentAuthorAvatarUrl() {
+        return 'http://placeskull.com/50/50/4CC417';
     }
 
 }
