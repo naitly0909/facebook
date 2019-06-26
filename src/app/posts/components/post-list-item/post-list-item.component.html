@@ -1,7 +1,7 @@
 <ng-container *ngIf="post">
     <div class="card m-3">
         <div class="card-header d-flex">
-            <img [src]="post.author.avatar_url" class="avatar mr-3 rounded-sm"
+            <img [src]="post.author.avatar_url" class="avatar mr-3 rounded"
                  alt="...">
             <div class="text-left">
                 <h5 class="card-title">{{post.author.name}}</h5>
@@ -19,8 +19,10 @@
             <p class="card-text">{{post.body}}</p>
         </div>
         <div class="card-footer">
-            <app-comment-list-item></app-comment-list-item>
-            <app-comment-add-form></app-comment-add-form>
+            <app-comment-list></app-comment-list>
+            <app-comment-add-form
+                    (addComment)="onAddComment($event)">
+            </app-comment-add-form>
         </div>
     </div>
 </ng-container>

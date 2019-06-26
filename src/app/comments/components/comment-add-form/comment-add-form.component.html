@@ -1,8 +1,32 @@
 <div>
-    <form class="form-inline">
+    <form class="form-inline"
+          (ngSubmit)="onSubmit()"
+          #commentForm="ngForm">
         <div class="form-group mr-3">
-            <input type="text" class="form-control" placeholder="Wpisz komentarz">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Wpisz komentarz..."
+                   name="body"
+                   #body="ngModel"
+                   [(ngModel)]="comment.body"
+                   required
+                   minlength="3"
+                   maxlength="10">
         </div>
-        <button type="submit" class="btn btn-primary">Dodaj</button>
+        <button type="submit"
+                class="btn btn-primary mb-2"
+                [disabled]="commentForm.invalid">
+            Dodaj
+        </button>
+
+        <!--        <button type="button"
+                        class="btn btn-primary mb-2"
+                        (click)="commentForm.reset()">
+                    Reset
+                </button>-->
+
+        <small class="alert alert-danger" *ngIf="body.errors && body.dirty">
+            <span *ngIf="body.errors['required']">Aby dodac komentarz wpisz text</span>
+        </small>
     </form>
 </div>
