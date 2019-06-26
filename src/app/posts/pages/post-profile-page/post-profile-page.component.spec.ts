@@ -5,6 +5,7 @@ import {PostListItemComponent} from '../../components/post-list-item/post-list-i
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {SharedModule} from '../../../shared/shared.module';
 import {RouterTestingModule} from '@angular/router/testing';
+import {CommentsModule} from '../../../comments/comments.module';
 
 describe('PostProfilePageComponent', () => {
     let component: PostProfilePageComponent;
@@ -13,7 +14,12 @@ describe('PostProfilePageComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [PostProfilePageComponent, PostListItemComponent],
-            imports: [RouterTestingModule, HttpClientTestingModule, SharedModule]
+            imports: [
+                RouterTestingModule,
+                HttpClientTestingModule,
+                SharedModule,
+                CommentsModule
+            ]
         })
             .compileComponents();
     }));
