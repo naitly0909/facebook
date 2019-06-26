@@ -28,13 +28,13 @@ describe('PostsService', () => {
 
     describe('getPosts', () => {
 
-        it('should contains method "getPosts"', () => {
-            expect(service.getPosts).toEqual(jasmine.any(Function));
+        it('should contains method "fetchPosts"', () => {
+            expect(service.fetchPosts).toEqual(jasmine.any(Function));
         });
 
         it('should male HTTP request', async () => {
             // 1. Zarejestrowac request
-            const response = service.getPosts(); // object Promise
+            const response = service.fetchPosts(); // object Promise
 
             // 2. Stworzyc server HTTP, ktory bedzie zwracal mockowe dane
             const server = httpMock.expectOne(url);

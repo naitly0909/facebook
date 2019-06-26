@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostsService} from '../../../shared/services/posts.service';
+import {IPostList} from '../../../shared/interfaces/post-list.interface';
 
 @Component({
     selector: 'app-home-page',
@@ -8,7 +9,7 @@ import {PostsService} from '../../../shared/services/posts.service';
 })
 export class HomePageComponent implements OnInit {
 
-    allPosts = null;
+    allPosts: IPostList = null;
 
     constructor(private postService: PostsService) {
     }
@@ -23,6 +24,7 @@ export class HomePageComponent implements OnInit {
 
     onAddPost(post) {
         this.allPosts.unshift(post);
+        this.postService.savePosts(this.allPosts);
     }
 
 }
