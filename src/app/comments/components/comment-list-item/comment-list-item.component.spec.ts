@@ -1,6 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CommentListItemComponent} from './comment-list-item.component';
+import {ICommentListItem} from '../../../shared/interfaces/comment-list-item.interface';
+import {CommentListComponent} from '../comment-list/comment-list.component';
 
 describe('CommentListItemComponent', () => {
     let component: CommentListItemComponent;
@@ -9,7 +11,7 @@ describe('CommentListItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [CommentListItemComponent]
+            declarations: [CommentListItemComponent, CommentListComponent]
         })
             .compileComponents();
     }));
@@ -28,4 +30,15 @@ describe('CommentListItemComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should display comment details', () => {
+        component.comment = {
+            body: 'To jest cos'
+        } as ICommentListItem;
+        fixture.detectChanges();
+
+        const $body = $component.querySelector('.comment-body');
+        expect($body.textContent.trim()).toEqual('To jest cos');
+    });
+
 });

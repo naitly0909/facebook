@@ -61,6 +61,10 @@ describe('PostsService', () => {
 
     describe('getPostById', () => {
 
+        it('should contains method "getPostById"', () => {
+            expect(service.getPostById).toEqual(jasmine.any(Function));
+        });
+
         it('should male HTTP request', async () => {
 
             const postId = 'aaaaaaaaaaaaa';
