@@ -8,6 +8,7 @@
                    placeholder="Wpisz komentarz..."
                    name="body"
                    #body="ngModel"
+                   [class.is-invalid]="body.invalid && body.dirty"
                    [(ngModel)]="comment.body"
                    required
                    minlength="3"
